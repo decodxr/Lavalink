@@ -1,19 +1,8 @@
 server:
   port: 2333
-
-lavalink:
-  server:
-    password: ${LAVALINK_SERVER_PASSWORD}
-    sources:
-      youtube: false
-      bandcamp: true
-      soundcloud: true
-      twitch: true
-      vimeo: true
-      http: true
-      local: false
-    youtubeSearchEnabled: false
-    soundcloudSearchEnabled: true
+  address: 0.0.0.0
+  http2:
+    enabled: false
 
 plugins:
   youtube:
@@ -31,4 +20,22 @@ plugins:
       enabled: true
       url: "https://cipher.kikkia.dev/"
 
-pluginsDir: "./plugins"
+lavalink:
+  plugins:
+    - dependency: "dev.lavalink.youtube:youtube-plugin:1.18.0"
+      snapshot: false
+  pluginsDir: "./plugins"
+  defaultPluginRepository: "https://maven.lavalink.dev/releases"
+
+  server:
+    password: ${LAVALINK_SERVER_PASSWORD}
+    sources:
+      youtube: false
+      bandcamp: true
+      soundcloud: true
+      twitch: true
+      vimeo: true
+      http: true
+      local: false
+    youtubeSearchEnabled: false
+    soundcloudSearchEnabled: true
